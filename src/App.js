@@ -13,7 +13,7 @@ function App() {
   const [currentEdit, setCurrentEdit] = useState("");
   const [currentEditedItem, setCurrentEditedItem] = useState("");
 
-  const API_URL = 'http://localhost:5000/todos'; // Backend API URL
+  const API_URL = 'http://localhost:5050/todos'; // Backend API URL
 
   // Fetch todos from the backend
   const fetchTodos = async () => {
@@ -112,7 +112,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Jason's To-Do App</h1>
+      <h1>To-Do</h1>
 
       <div className="todo-wrapper">
         <div className="todo-input">
