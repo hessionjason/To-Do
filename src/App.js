@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 function App() {
   const [isCompleteScreen, setIsCompleteScreen] = useState(false);
@@ -13,7 +13,9 @@ function App() {
   const [currentEdit, setCurrentEdit] = useState("");
   const [currentEditedItem, setCurrentEditedItem] = useState("");
 
-  const API_URL = 'http://localhost:5050/todos'; // Backend API URL
+  // Use environment variable for the API URL
+  const API_URL = process.env.REACT_APP_API_URL
+      //|| 'http://localhost:5050/todos'; // Fallback to localhost for development
 
   // Fetch todos from the backend
   const fetchTodos = async () => {
@@ -100,7 +102,7 @@ function App() {
     const updatedTodo = { ...currentEditedItem };
     try {
       await axios.put(`${API_URL}/${currentEditedItem._id}`, updatedTodo);
-      const newToDoList = allTodos.map(todo => 
+      const newToDoList = allTodos.map(todo =>
         todo._id === currentEditedItem._id ? updatedTodo : todo
       );
       setTodos(newToDoList);
