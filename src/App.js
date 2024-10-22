@@ -14,8 +14,7 @@ function App() {
   const [currentEditedItem, setCurrentEditedItem] = useState("");
 
   // Use environment variable for the API URL
-  const API_URL = process.env.REACT_APP_API_URL
-      //|| 'http://localhost:5050/todos'; // Fallback to localhost for development
+  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5050/todos'; // Fallback to localhost for development
 
   // Fetch todos from the backend
   const fetchTodos = async () => {
